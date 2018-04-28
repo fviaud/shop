@@ -1,0 +1,22 @@
+version: '2'
+services:
+  mysql:
+    image: mysql
+    container_name: db
+    ports:
+    - 3306:3306
+    volumes:
+      - /var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=fred     
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    ports:
+      - 8080:80
+    links:
+      - mysql:db
+
+
+      
+    

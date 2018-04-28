@@ -21,3 +21,4 @@ composer create-project symfony/skeleton <RepProjet>
 composer require server --dev
 composer require annotations
 composer require maker
+composer require doctrine
