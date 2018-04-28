@@ -1,0 +1,23 @@
+#Montage partage Linux Windows
+mount -t vboxsf projets /home/fred/Bureau/projets/
+
+#Installation PHP
+apt-get update
+apt-get install php7.1
+apt-get install php7.1-xml
+
+#Installation Docker sur Ubuntu
+sudo apt-get update
+sudo apt-get install apt-transport-https ca-certificates curl software-properties-common
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo apt-key fingerprint 0EBFCD88
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu zesty stable"
+sudo apt-get update
+sudo apt-get install docker-ce
+
+#Creation projet symfony4 a partir d'un contenair Docker
+docker run -it --rm -v $PWD:/app composer /bin/bash
+composer create-project symfony/skeleton <RepProjet>
+composer require server --dev
+composer require annotations
+composer require maker
