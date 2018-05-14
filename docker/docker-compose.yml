@@ -15,11 +15,12 @@ services:
     depends_on:
       - php
     ports:
-      - 81:80
+      - 80:80
     volumes_from:
       - code
     links:
     - php:php
+    - phpmyadmin:phpmyadmin
   php:
     build:
         context: .

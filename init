@@ -22,3 +22,4 @@ composer require server --dev
 composer require annotations
 composer require maker
 composer require doctrine
+composer require twig

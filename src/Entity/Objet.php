@@ -9,6 +9,22 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Objet
 {
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Categorie", inversedBy="objets")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    
+    private $categorie;
+    function getCategorie() {
+        return $this->categorie;
+    }
+
+    function setCategorie($categorie) {
+        $this->categorie = $categorie;
+    }
+    
+    
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()

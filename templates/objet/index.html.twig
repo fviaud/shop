@@ -1,0 +1,24 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <h1> Mes objets </h1>  
+  <table class="table table-striped">
+    <thead >
+	<TR>
+		<TH>Objets</TH> <TH>Ctagories</TH> <TH>Prix</TH>
+	</TR>
+    </thead>    
+    <tbody>
+   {% for objet in objets %}
+       <tr>
+          <TD>{{objet.nom}}</TD> <TD>{{objet.categorie.nom}}</TD> <TD>prix</TD> 
+       </tr>
+    {% endfor %}
+    </tbody>
+</table>
+<a class="btn btn-default" href="#" role="button">Link</a>
+<button class="btn btn-default" type="submit">Button</button>
+<input class="btn btn-default" type="button" value="Input">
+<input class="btn btn-default" type="submit" value="Submit">
+
+{% endblock %}

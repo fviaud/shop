@@ -12,9 +12,12 @@ class ObjetsController extends Controller
      */
     public function index()
     {
-        return $this->json([
-            'message' => 'Welcome to your new controller!',
-            'path' => 'src/Controller/ObjetsController.php',
-        ]);
+        
+        $objets= $this->getDoctrine()->getManager()->getRepository('App:Objet')->findall();
+        return $this->render('objet/index.html.twig', array('objets' => $objets));
+//        return $this->json([
+//            'message' => 'Welcome to your new controller!',
+//            'path' => 'src/Controller/ObjetsController.php',
+//        ]);
     }
 }
