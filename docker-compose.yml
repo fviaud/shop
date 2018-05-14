@@ -1,5 +1,13 @@
 version: '2'
 services:
+  php:
+    build:
+        context: .
+        dockerfile: Dockerfile-php
+    container_name: php
+    volumes_from:
+      - code
+    
   mysql:
     image: mysql:5.7.22
     container_name: db
