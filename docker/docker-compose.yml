@@ -1,5 +1,25 @@
 version: '2'
 services:
+  code:
+    build:
+      context: .
+      dockerfile: Dockerfile-code
+    container_name: code
+    volumes:
+      - c:/Projets/Symfony/:/app   
+  nginx:
+    build:
+      context: .
+      dockerfile: Dockerfile-nginx
+    container_name: nginx
+    depends_on:
+      - php
+    ports:
+      - 81:80
+    volumes_from:
+      - code
+    links:
+    - php:php
   php:
     build:
         context: .
@@ -7,7 +27,6 @@ services:
     container_name: php
     volumes_from:
       - code
-    
   mysql:
     image: mysql:5.7.22
     container_name: db
